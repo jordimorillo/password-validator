@@ -18,8 +18,7 @@ class Passwords
     public static function aPassword(): Password
     {
         return new Password(
-            '4V4l1dP4$$w0Rd',
-            new CharacterValidator(ValidCharacters::list())
+            '4V4l1dP4$$w0Rd'
         );
     }
 
@@ -30,8 +29,7 @@ class Passwords
     public static function aNonValidPassword(): Password
     {
         return new Password(
-            'A non valid password',
-            new CharacterValidator(ValidCharacters::list())
+            'A non valid password'
         );
     }
 }

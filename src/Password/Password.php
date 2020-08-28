@@ -16,15 +16,18 @@ class Password implements StringValueObject
     /**
      * Password constructor.
      * @param string $password
-     * @param CharacterValidator $characterValidator
-     * @throws PasswordNotValid
+     * @param array|null $validCharactersList
      * @throws CharacterNotFound
+     * @throws PasswordNotValid
      */
     public function __construct(
         string $password,
-        CharacterValidator $characterValidator
+        array $validCharactersList = null
     ) {
-        $this->checkNonValidCharacters($password, $characterValidator);
+        $this->checkNonValidCharacters(
+            $password,
+            new CharacterValidator($validCharactersList)
+        );
         $this->password = $password;
     }
 
