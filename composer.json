@@ -1,0 +1,15 @@
+{
+    "name": "jordimorillo/password-validator",
+    "description": "A library to check if a password is valid or not",
+    "type": "library",
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src//",
+            "Tests\\": "tests//"
+        }
+    }
+}
