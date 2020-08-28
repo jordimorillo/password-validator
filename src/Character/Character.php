@@ -15,14 +15,6 @@ class Character implements StringValueObject
         $this->character = $character;
     }
 
-    /**
-     * @return string
-     */
-    public function getCharacter(): string
-    {
-        return $this->character;
-    }
-
     public function __toString(): string
     {
         return $this->character;
