@@ -4,7 +4,8 @@
 namespace Src\Password;
 
 
-use Src\Character\Character;
+use Src\Character\CharacterFactory;
+use Src\Character\CharacterNotFound;
 use Src\Character\CharacterValidator;
 use Src\StringValueObject\StringValueObject;
 
@@ -17,6 +18,7 @@ class Password implements StringValueObject
      * @param string $password
      * @param CharacterValidator $characterValidator
      * @throws PasswordNotValid
+     * @throws CharacterNotFound
      */
     public function __construct(
         string $password,
@@ -30,12 +32,14 @@ class Password implements StringValueObject
      * @param string $password
      * @param CharacterValidator $characterValidator
      * @throws PasswordNotValid
+     * @throws CharacterNotFound
      */
     public function checkNonValidCharacters(string $password, CharacterValidator $characterValidator): void
     {
         $characters = str_split($password);
+        $characterFactory = new CharacterFactory();
         foreach ($characters as $character) {
-            $isValid = $characterValidator->handle(new Character($character));
+            $isValid = $characterValidator->handle($characterFactory->getCharacter($character));
             if ($isValid === false) {
                 throw new PasswordNotValid('The issued password is not valid');
             }

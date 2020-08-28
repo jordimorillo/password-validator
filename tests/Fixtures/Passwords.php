@@ -4,6 +4,7 @@
 namespace Tests\Fixtures;
 
 
+use Src\Character\CharacterNotFound;
 use Src\Character\CharacterValidator;
 use Src\Password\Password;
 use Src\Password\PasswordNotValid;
@@ -12,7 +13,7 @@ class Passwords
 {
     /**
      * @return Password
-     * @throws PasswordNotValid
+     * @throws PasswordNotValid|CharacterNotFound
      */
     public static function aPassword(): Password
     {
@@ -24,7 +25,7 @@ class Passwords
 
     /**
      * @return Password
-     * @throws PasswordNotValid
+     * @throws PasswordNotValid|CharacterNotFound
      */
     public static function aNonValidPassword(): Password
     {

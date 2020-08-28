@@ -11,7 +11,7 @@ class CharacterValidatorTest extends TestCase
 {
     public function testWillReturnTrueWhenACharacterIsValid(): void
     {
-        $aCharacter = Characters::aCharacter();
+        $aCharacter = Characters::aLetter();
         $characterValidator = new CharacterValidator(
             ValidCharacters::list()
         );

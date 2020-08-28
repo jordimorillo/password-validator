@@ -6,20 +6,20 @@ namespace Src\Character;
 
 class CharacterValidator
 {
-    private array $list;
+    private array $validCharactersList;
 
     /**
      * CharacterValidator constructor.
-     * @param array $list
+     * @param array $validCharactersList
      */
-    public function __construct(array $list)
+    public function __construct(array $validCharactersList)
     {
-        $this->list = $list;
+        $this->validCharactersList = $validCharactersList;
     }
 
     public function handle(Character $aCharacter): bool
     {
-        if(in_array((string)$aCharacter, $this->list, true)) {
+        if(in_array((string)$aCharacter, $this->validCharactersList, true)) {
             return true;
         }
 

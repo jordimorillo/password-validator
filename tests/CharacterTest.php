@@ -10,7 +10,7 @@ class CharacterTest extends TestCase
 {
     public function testCanInstantiateACharacter(): void
     {
-        $aCharacter = Characters::aCharacter();
+        $aCharacter = Characters::aLetter();
         self::assertInstanceOf(Character::class, $aCharacter);
     }
 }
